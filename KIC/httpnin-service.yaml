@@ -1,0 +1,40 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: httpbin-1
+  name: httpbin
+spec:
+  ports:
+    - port: 2027
+      name: http
+      protocol: TCP
+      targetPort: 8080
+  selector:
+    app: httpbin-1
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: httpbin-1
+  name: httpbin
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: httpbin-1
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        app: httpbin-1
+    spec:
+      containers:
+        - image: mccutchen/go-httpbin
+          name: httpbin
+          ports:
+            - containerPort: 8080
+          resources: {}
+
+

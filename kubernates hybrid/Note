@@ -1,0 +1,120 @@
+
+
+`Secret for license:`
+
+kubectl delete secret kong-enterprise-license -n kong
+
+kubectl create secret generic kong-enterprise-license --from-file=license=/Users/arun.gopakumar@konghq.com/Documents/git/BasicAuthHybridDeployment/license.json -n kong
+
+
+kubectl get secret kong-enterprise-license -n kong -o yaml
+
+
+apiVersion: v1
+data:
+  license: eyJsaWNlbnNlIjp7InBheWxvYWQiOnsiYWRtaW5fc2VhdHMiOiI1IiwiY3VzdG9tZXIiOiJhdXRvbWF0aW9uIiwiZGF0YXBsYW5lcyI6IjEwMCIsImxpY2Vuc2VfY3JlYXRpb25fZGF0ZSI6IjIwMjQtMDYtMDIiLCJsaWNlbnNlX2V4cGlyYXRpb25fZGF0ZSI6IjIwMjQtMDctMjAiLCJsaWNlbnNlX2tleSI6IkFTREFTREFTREFTREFTREFTREFTREFTREFTRF9hMVZBU0FTRCIsInByb2R1Y3Rfc3Vic2NyaXB0aW9uIjoiS29ubmVjdCBFbnRlcnByaXNlIiwic3VwcG9ydF9wbGFuIjoiTm9uZSJ9LCJzaWduYXR1cmUiOiJmMmMzYjQ2ODM4YTY1MDY0MjYyYTUyMjQ3NjlkYWQzNmU0ZWZkZTAwNDQ5Mzk3NTQ1MTI2YTlhMDQwN2UyYWM5N2RhY2NjMDMyNTEyMzQyMWJkZWMzNmU3ODE1ZDQ5NWM5MzY3OGY2Mzc2MGIzYjc1NTAxNTM2ZmI3Nzg2ODRhNCIsInZlcnNpb24iOiIxIn19Cg==
+kind: Secret
+metadata:
+  creationTimestamp: "2024-07-04T19:06:14Z"
+  name: kong-enterprise-license
+  namespace: kong
+  resourceVersion: "18726"
+  uid: fe87b87c-4a91-4975-9725-fbbb3dc812d6
+type: Opaque
+
+
+
+`For Ingress:`
+
+
+Generating an SSL certificate and private key for use in Kubernetes can be done using various methods. One common way is to use OpenSSL, which is a widely used tool for creating and managing SSL certificates.
+
+### Generating SSL Certificate and Private Key
+
+Here's a basic step-by-step guide to generating an SSL certificate and private key using OpenSSL:
+
+1. **Install OpenSSL**: Ensure you have OpenSSL installed on your system. You can install it using package managers like `apt` on Debian-based systems or `brew` on macOS.
+
+2. **Generate a Private Key**: Run the following command to generate a private key:
+
+    ```sh
+    openssl genpkey -algorithm RSA -out tls.key -pkeyopt rsa_keygen_bits:2048
+    ```
+
+3. **Generate a Certificate Signing Request (CSR)**: Use the private key to create a CSR. You will be prompted to enter information such as your country, state, organization, etc.
+
+    ```sh
+    openssl req -new -key tls.key -out tls.csr
+    ```
+
+4. **Generate a Self-Signed Certificate**: Use the CSR and private key to generate a self-signed certificate. This certificate will be valid for 365 days.
+
+    ```sh
+    openssl x509 -req -days 365 -in tls.csr -signkey tls.key -out tls.crt
+    ```
+
+You will now have two files: `tls.crt` (the certificate) and `tls.key` (the private key).
+
+### Using the SSL Certificate and Private Key in Kubernetes
+
+1. **Create the Kubernetes Secret**:
+
+    ```sh
+    kubectl create secret tls your-tls-secret --cert=tls.crt --key=tls.key -n kong
+    ```
+
+    Replace `your-tls-secret` with your desired secret name.
+
+2. **Update Your Ingress Resource**:
+
+    ```yaml
+    apiVersion: networking.k8s.io/v1
+    kind: Ingress
+    metadata:
+      name: kong-ingress
+      namespace: kong
+      annotations:
+        nginx.ingress.kubernetes.io/rewrite-target: /
+    spec:
+      rules:
+      - host: your-domain.com
+        http:
+          paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: kong-dp-kong-proxy
+                port:
+                  number: 80
+      tls:
+      - hosts:
+        - your-domain.com
+        secretName: your-tls-secret
+    ```
+
+    Replace `your-domain.com` with your actual domain name and `your-tls-secret` with the name of the secret you created.
+
+3. **Apply the Ingress Resource**:
+
+    ```sh
+    kubectl apply -f your-ingress-file.yaml
+    ```
+
+### Recommendations for Kong Gateway and mTLS
+
+While it is possible to use the same SSL certificate and key for both the Ingress resource and mTLS for securing control plane/data plane communication in Kong Gateway, it is generally recommended to use separate certificates for different purposes. This separation enhances security and manageability.
+
+For mTLS (Mutual TLS) specifically:
+
+- Ensure you follow Kong's documentation for setting up mTLS, as it often involves creating separate client and server certificates.
+- Use a proper Certificate Authority (CA) to sign your certificates to establish a chain of trust.
+
+### Summary
+
+- Generate SSL certificates using OpenSSL.
+- Create a Kubernetes secret to store the certificate and key.
+- Update and apply the Ingress resource to use the secret for TLS.
+- Use separate certificates for mTLS if required, following Kong's recommendations for secure control plane/data plane communication.
+
+By following these steps, you can ensure that your Ingress resource is properly configured with SSL/TLS while maintaining a secure setup for Kong Gateway's hybrid mode.

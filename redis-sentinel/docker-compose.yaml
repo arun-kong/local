@@ -1,0 +1,41 @@
+version: '3.8'
+
+services:
+  redis-master:
+    image: redis:latest
+    container_name: redis-master
+    ports:
+      - "6379:6379"
+    command: redis-server --requirepass mypassword
+    # networks:
+    #   - redis-net
+
+  redis-slave:
+    image: redis:latest
+    container_name: redis-slave
+    depends_on:
+      - redis-master
+    command: redis-server --slaveof redis-master 6379 --requirepass mypassword
+    # networks:
+    #   - redis-net
+
+  redis-sentinel:
+    image: redis:latest
+    container_name: redis-sentinel
+    depends_on:
+      - redis-master
+      - redis-slave
+    command: >
+      redis-sentinel
+      --sentinel monitor mymaster 172.26.0.2 6379 2
+      --sentinel down-after-milliseconds mymaster 5000
+      --sentinel parallel-syncs mymaster 1
+      --sentinel failover-timeout mymaster 10000
+    ports:
+      - "26379:26379"
+#     networks:
+#       - redis-net
+
+# networks:
+#   redis-net:
+#     driver: bridge

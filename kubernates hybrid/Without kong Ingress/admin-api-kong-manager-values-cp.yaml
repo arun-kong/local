@@ -1,0 +1,41 @@
+admin:
+  enabled: true
+  http:
+    enabled: true
+  tls:
+    enabled: false
+     
+  ingress:
+    enabled: true
+    hostname: admin.kongadmin
+    path: /
+    pathType: Prefix
+    ingressClassName: kong
+
+
+env:
+  admin_gui_url: http://manager.kongmanager
+  admin_gui_api_url: http://admin.kongadmin
+  # Change the secret and set cookie_secure to true if using a HTTPS endpoint
+  admin_gui_session_conf: '{"secret":"secret","storage":"kong","cookie_secure":false}'
+
+
+enterprise:
+  rbac:
+    enabled: true
+    admin_gui_auth: basic-auth
+
+
+manager:
+ enabled: true
+ http:
+   enabled: true
+ tls:
+   enabled: false
+    
+ ingress:
+   enabled: true
+   hostname: manager.kongmanager
+   path: /
+   pathType: Prefix
+   ingressClassName: kong

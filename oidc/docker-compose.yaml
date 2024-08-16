@@ -75,26 +75,13 @@ services:
       KONG_ADMIN_API_URI: "http://localhost:8001"
       KONG_ADMIN_GUI_LISTEN: 0.0.0.0:8002, 0.0.0.0:8445 ssl
       KONG_ADMIN_GUI_URL: "http://localhost:8002"
-      #below disabled for oidc
       KONG_ADMIN_GUI_AUTH: "basic-auth"
       KONG_ALLOW_DEBUG_HEADER: "on"
       KONG_ADMIN_GUI_SESSION_CONF: '{ "cookie_name":"kong_manager_session", "secret":"set-your-string-here", "storage":"kong", "cookie_secure": false, "cookie_lifetime": 3600 }'
       KONG_VITALS: "on"
       KONG_STATUS_LISTEN: "0.0.0.0:8100"
       KONG_PORTAL: "off"
-      # added for oids
-      # KONG_ADMIN_GUI_AUTH: "openid-connect"
-      # KONG_ADMIN_GUI_AUTH_CONF: '{ 
-      #   "issuer": "http://172.16.87.128:8080/auth/realms/kong/.well-known/openid-configuration", 
-      #   "client_id": ["kong"], 
-      #   "client_secret": ["IoWCD8nqknsyQoKM0IkghljAJE6GiQub"], 
-      #   "redirect_uri": ["http://localhost:8001/auth"], 
-      #   "scopes": ["openid", "email", "offline_access"], 
-      #   "login_redirect_uri": ["http://localhost:8002"], 
-      #   "logout_redirect_uri": ["http://localhost:8002"], 
-      #   "admin_claim": "preferred_username", 
-      #   "authenticated_groups_claim": ["groups"]
-      # }'
+      KONG_admin_gui_auth: "basic-auth"
     ports:
       - "8000:8000/tcp"
       - "8001:8001/tcp"
@@ -177,13 +164,3 @@ services:
     image: kennethreitz/httpbin
     container_name: httpbin-1
   
-
-  # keycloak:
-  #   image: quay.io/keycloak/keycloak:25.0.1
-  #   container_name: keycloak
-  #   ports:
-  #     - 8080:8080
-  #   environment:
-  #     - KEYCLOAK_ADMIN=admin
-  #     - KEYCLOAK_ADMIN_PASSWORD=admin
-  #   command: start-dev

@@ -1,0 +1,34 @@
+#Enable plugin 
+#ref:  https://github.com/Kong/kubernetes-ingress-controller/blob/3a72f85f3baca0e630b2c117896136b34c10e2c3/docs/references/custom-resources.md#kongconsumer
+
+apiVersion: configuration.konghq.com/v1
+kind: KongPlugin
+metadata:
+  name: correlation-id-plugin
+config:
+  header_name: Kong-Request-ID
+  generator: uuid#counter
+  echo_downstream: true
+plugin: correlation-id
+
+---
+
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: httpbin-1
+  name: httpbin
+  annotations:
+    konghq.com/plugins: correlation-id-plugin
+spec:
+  ports:
+    - port: 2027
+      name: http
+      protocol: TCP
+      targetPort: 8080
+  selector:
+    app: httpbin-1
+
+---
+

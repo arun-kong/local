@@ -1,0 +1,153 @@
+
+
+
+Hi Sakshi,
+
+Thank you for contacting Kong Support.  Please find the Answers for the query below:
+
+Query:
+
+1: Question regarding how the time is calculated for RateLimit-Reset and Retry-After in both 'fixed' and 'sliding' window types.
+
+Answer:
+
+The calculations for RateLimit-Reset and Retry-After differ between 'fixed' and 'sliding' window types.
+For a fixed window, the system monitors the remaining reset time and the reset limit. Once the request limit is exhausted, a 429 response is returned. At this point, RateLimit-Reset and Retry-After will indicate the time remaining until the next request is allowed.
+
+For example, for the following configuration:
+
+Limit size = 10
+
+Window size = 60 seconds
+
+With a fixed window strategy, it's easy to predict when the window is going to be reset and if the client sends a burst of traffic, 12 request per minute for example, it will have 10 requests accepted (response 200) and 2 rejected (response 429) per minute and so on. In general this is the expected response.
+
+
+
+
+For sliding window types, the client sends a burst of 12 requests per minute, it will have the first 10 requests accepted (response 200) and all the following rejected (response 429).
+The RateLimit-Reset & Retry-After will be calculated based on the algorithm and the reset time keeps on expanding.
+You can read more about it in below links:
+https://konghq.com/blog/engineering/how-to-design-a-scalable-rate-limiting-algorithm
+https://docs.konghq.com/hub/kong-inc/rate-limiting/
+
+
+
+
+2: I would also appreciate clarity on how requests are credited to consumers within a time frame in Kong Konnect.
+
+The rate limiting for Fixed length will have a common reset/Retry window for all the consumers but for sliding window types, each will have different reset/Retry window
+
+
+
+
+Below is example for:
+
+Created 2 consumers: App & Bot
+
+1: Fixed window strategy:
+
+-> RateLimit-Reset and Retry-After will have common reset limit and once the limit is exhausted, both the App & Bot will get 429 response.
+
+>>>>>>>
+curl -I http://localhost:8000/echo -H "key:bot"
+HTTP/1.1 429 Too Many Requests
+Date: Tue, 09 Jul 2024 12:35:32 GMT
+Content-Type: application/json; charset=utf-8
+Connection: keep-alive
+X-RateLimit-Limit-minute: 5
+X-RateLimit-Remaining-minute: 0
+RateLimit-Limit: 5
+RateLimit-Remaining: 0
+RateLimit-Reset: 28
+Retry-After: 28
+Content-Length: 37
+X-Kong-Response-Latency: 1
+Server: kong/3.7.0.0-enterprise-edition
+X-Kong-Request-Id: 100d76464583d44c894acb196d872e73
+ 
+>>>>>>>
+curl -I http://localhost:8000/echo -H "key:app"
+HTTP/1.1 429 Too Many Requests
+Date: Tue, 09 Jul 2024 12:35:43 GMT
+Content-Type: application/json; charset=utf-8
+Connection: keep-alive
+RateLimit-Reset: 17
+RateLimit-Remaining: 0
+RateLimit-Limit: 5
+X-RateLimit-Limit-minute: 5
+X-RateLimit-Remaining-minute: 0
+Retry-After: 17
+Content-Length: 37
+X-Kong-Response-Latency: 2
+Server: kong/3.7.0.0-enterprise-edition
+X-Kong-Request-Id: 8e3d6e1944b2e51a9d4f593aa079751c
+ 
+
+
+
+
+2: Sliding window types
+
+-> Here consumers Bot and App have different RateLimit-Reset/Retry-After time, and the individual Reset/Retry time will be based on the internal algorithm.
+
+>>>>>>>
+curl -I http://localhost:8000/echo -H "key:app" ; date
+HTTP/1.1 429 Too Many Requests
+Date: Tue, 09 Jul 2024 12:49:23 GMT
+Content-Type: application/json; charset=utf-8
+Connection: keep-alive
+RateLimit-Reset: 138
+RateLimit-Remaining: 0
+RateLimit-Limit: 5
+X-RateLimit-Limit-minute: 5
+X-RateLimit-Remaining-minute: 0
+Retry-After: 138
+Content-Length: 37
+X-Kong-Response-Latency: 2
+Server: kong/3.7.0.0-enterprise-edition
+X-Kong-Request-Id: 4021fd36395c9f0c7862f73c807c2833
+ 
+Tue Jul 9 18:19:23 IST 2024
+ 
+>>>>>>>
+curl -I http://localhost:8000/echo -H "key:bot" ; date
+HTTP/1.1 200 OK
+Content-Type: application/json
+Content-Length: 711
+Connection: keep-alive
+RateLimit-Reset: 34
+RateLimit-Remaining: 0
+RateLimit-Limit: 5
+X-RateLimit-Limit-minute: 5
+X-RateLimit-Remaining-minute: 0
+Date: Tue, 09 Jul 2024 12:49:26 GMT
+Server: gunicorn/19.9.0
+Access-Control-Allow-Origin: *
+Access-Control-Allow-Credentials: true
+X-Kong-Upstream-Latency: 569
+ 
+Tue Jul 9 18:19:26 IST 2024
+ 
+>>>>>>>
+curl -I http://localhost:8000/echo -H "key:bot" ; date
+HTTP/1.1 429 Too Many Requests
+Date: Tue, 09 Jul 2024 12:49:30 GMT
+Content-Type: application/json; charset=utf-8
+Connection: keep-alive
+RateLimit-Reset: 36
+RateLimit-Remaining: 0
+RateLimit-Limit: 5
+X-RateLimit-Limit-minute: 5
+X-RateLimit-Remaining-minute: 0
+Retry-After: 36
+Content-Length: 37
+X-Kong-Response-Latency: 1
+Server: kong/3.7.0.0-enterprise-edition
+X-Kong-Request-Id: a20569171885de22b9d3d12aa0ac1615
+ 
+Tue Jul 9 18:19:30 IST 2024
+
+
+
+Please let us know incase if you have any further query or clarifications required, I am happy to help further.

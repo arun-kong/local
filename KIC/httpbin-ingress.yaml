@@ -1,0 +1,18 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+ name: httpbin-1
+ annotations:
+   konghq.com/strip-path: 'true'
+spec:
+ ingressClassName: kong
+ rules:
+ - http:
+     paths:
+     - path: /route
+       pathType: ImplementationSpecific
+       backend:
+         service:
+           name: httpbin
+           port:
+             number: 2027
