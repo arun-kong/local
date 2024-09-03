@@ -1,3 +1,44 @@
-service:
-  type: LoadBalancer
-  loadBalancerIP: 192.168.1.202
+ingressController:
+  enabled: true
+  env:
+    publish_service: kong/kong-dp-kong-proxy
+    kong_admin_token: kong_admin_password
+
+admin:
+ enabled: true
+ http:
+   enabled: true
+ tls:
+   enabled: false
+    
+ ingress:
+   enabled: true
+   hostname: admin.kong-kube-test.com
+   path: /
+   pathType: Prefix
+   ingressClassName: kong
+
+env:
+  admin_gui_url: http://manager.kong-kube-test.com
+  admin_gui_api_url: http://admin.kong-kube-test.com
+  # Change the secret and set cookie_secure to true if using a HTTPS endpoint
+  admin_gui_session_conf: '{"secret":"secret","storage":"kong","cookie_secure":false}'
+
+enterprise:
+  rbac:
+    enabled: true
+    admin_gui_auth: basic-auth
+
+manager:
+ enabled: true
+ http:
+   enabled: true
+ tls:
+   enabled: false
+    
+ ingress:
+   enabled: true
+   hostname: manager.kong-kube-test.com
+   path: /
+   pathType: Prefix
+   ingressClassName: kong

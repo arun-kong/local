@@ -1,0 +1,83 @@
+_transform: false
+_format_version: '2.1'
+consumers:
+- id: 8e648a26-ba2d-4101-ae56-6b2d45b8bd6c
+  type: 0
+  created_at: 1725102895
+  ws_id: e7867918-77b2-4a53-ac97-5d3659600a94
+  custom_id: ~
+  tags: ~
+  username: test
+- id: df794689-b037-490c-9480-7c90d1669567
+  type: 0
+  created_at: 1725029711
+  ws_id: e7867918-77b2-4a53-ac97-5d3659600a94
+  custom_id: ~
+  tags: ~
+  username: aaa
+- id: 8ab3f957-2250-4805-aeb0-557ca3f3fab9
+  type: 0
+  created_at: 1725099418
+  ws_id: e7867918-77b2-4a53-ac97-5d3659600a94
+  custom_id: ~
+  tags: ~
+  username: arun
+- id: 0f31ae8e-076a-4546-85c2-f24f7bc52612
+  type: 0
+  created_at: 1725029711
+  ws_id: e7867918-77b2-4a53-ac97-5d3659600a94
+  custom_id: ~
+  tags: ~
+  username: karl
+basicauth_credentials:
+- id: 13dd756d-77ec-43f5-8d76-f1c05b2882a8
+  consumer: 8e648a26-ba2d-4101-ae56-6b2d45b8bd6c
+  created_at: 1725102896
+  tags: ~
+  ws_id: e7867918-77b2-4a53-ac97-5d3659600a94
+  password: 9d0d5608ea3c384cf854353f2c2833104023c5c6
+  username: test
+- id: 95d98049-e7a9-4a3e-88e8-b57c16d8c65a
+  consumer: 0f31ae8e-076a-4546-85c2-f24f7bc52612
+  created_at: 1725100615
+  tags: ~
+  ws_id: e7867918-77b2-4a53-ac97-5d3659600a94
+  password: e4e1ca060e021098d62bafc8e7149a7fe853e3bc
+  username: karl
+oauth2_credentials:
+- name: Test Application
+  client_secret: $pbkdf2-sha512$i=10000,l=32$+xu1DE6aFtOAbcdZ0OSVPg$5JX02KCq5224wlqjlgdbPMgNLIfZ+lzUtoxp7dxUfbQ
+  redirect_uris:
+  - http://httpbin/echo
+  client_id: client
+  id: 31c9bd8d-8b94-4675-8401-f98e75a6f9c5
+  created_at: 1725099418
+  consumer: 8ab3f957-2250-4805-aeb0-557ca3f3fab9
+  tags: ~
+  hash_secret: true
+  client_type: confidential
+  ws_id: e7867918-77b2-4a53-ac97-5d3659600a94
+- name: aaa1
+  client_secret: $pbkdf2-sha512$i=10000,l=32$rlqxDVC/ae6HwXzIuTm3vg$tkDzuRvlk/LdACiK5eVmEPiUSsioRqz5JgqK29ytIzA
+  redirect_uris:
+  - http://localhost:8000/code
+  client_id: aaa2
+  id: 7833f486-c32a-4919-a5f0-95c4d7d911a3
+  created_at: 1725029711
+  consumer: df794689-b037-490c-9480-7c90d1669567
+  tags: ~
+  hash_secret: true
+  client_type: confidential
+  ws_id: e7867918-77b2-4a53-ac97-5d3659600a94
+- name: arun
+  client_secret: $pbkdf2-sha512$i=10000,l=32$ZhTh+963WsKebU8gjd0s+w$XNuiW3X/1ZlNBqnLs7mbP/dk34JM+3u97TG4jKHdVhM
+  redirect_uris:
+  - http://localhost:8000/code
+  client_id: arun1
+  id: 0c1d75e6-4a1e-4bc0-858f-d71eb16e49e9
+  created_at: 1725029849
+  consumer: 0f31ae8e-076a-4546-85c2-f24f7bc52612
+  tags: ~
+  hash_secret: true
+  client_type: confidential
+  ws_id: e7867918-77b2-4a53-ac97-5d3659600a94

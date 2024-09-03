@@ -1,0 +1,248 @@
+_format_version: "1.1"
+certificates:
+- cert: |-
+    -----BEGIN CERTIFICATE-----
+    MIIDnDCCAoSgAwIBAgIUIN7dKa3PSDLCA/BzbfV36JOdg+4wDQYJKoZIhvcNAQEL
+    BQAwYDELMAkGA1UEBhMCQVUxEzARBgNVBAgMClNvbWUtU3RhdGUxITAfBgNVBAoM
+    GEludGVybmV0IFdpZGdpdHMgUHR5IEx0ZDEZMBcGA1UEAwwQa29uZy5leGFtcGxl
+    LmNvbTAeFw0yNDA4MjkxNTIwMjVaFw0yNTA4MjkxNTIwMjVaMGwxCzAJBgNVBAYT
+    AkFVMRMwEQYDVQQIDApTb21lLVN0YXRlMSEwHwYDVQQKDBhJbnRlcm5ldCBXaWRn
+    aXRzIFB0eSBMdGQxJTAjBgNVBAMMHGtvbmdtYW5hZ2VyLmtvbmcuZXhhbXBsZS5j
+    b20wggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDILPiKvEAuCi4lxnVP
+    UuL59JivbwNLeBpeBOfSBtjhrShbLgJkyHsVS957m7St11/dVGqxCL6kgtz/Y6wr
+    Cb0/yw3MJuzvHRoe8LwExnn5HcGourBtJ0llskAAxqWf1+EwmO4zshMkzIKz79n0
+    JkRriIWucoHxGgijs1Mu8VAgbB18uQkO3zsHt7AbY3OpGV2pVV505cmJ52gp8jes
+    hmni4D/jZdmu4IkktPGM1hzoDqYjKPXDxuzMKJgVyv70MEkoAvh4+BSXikAAMffw
+    gsie37rRXiI9m+5mwBzjTTRNWUpBJ4RQtq8i60ROy/fMaME8PTxhdtghRWPIlM4x
+    8VHVAgMBAAGjQjBAMB0GA1UdDgQWBBTlJM5xE7XQ9pBl41i/858RzT0LKjAfBgNV
+    HSMEGDAWgBR27vSjE8fyhjKEuq1VO6+wNHC1cDANBgkqhkiG9w0BAQsFAAOCAQEA
+    gmOo45k81MER+Kbwk69JmRehtFfP0GBMamj/RgkhPh6r4yX6aJ4ADExnXGnVpr7e
+    u5iULdN91GsU23/0z2dWTlZaCjJJ1Rb0cgeHjl2gkBSGjHQ7DyTBfF2hpokd66CZ
+    0AjrCi3SyNTT8yRQCPejRn/FE64dC9o/RovmOZmEvb1nB+yIN1/kvz17WxO3s+lI
+    GW+8TFVFc85a3AwZQS40LvC+0O26PU/zN80Sf5JHYC2RDEcEg3LOuu0P70TBvvGI
+    geu+ZnyF8CWlbj4uhngf55oGRtqHFRGmIO04HNYM2IPbLctjA+X8YzGcxg6wxBzR
+    CaYLxXFuuHunAlWgioLsjQ==
+    -----END CERTIFICATE-----
+  id: 3ed8d7d2-3dbf-49f9-b6b7-c04f70d26033
+  key: |-
+    -----BEGIN PRIVATE KEY-----
+    MIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDILPiKvEAuCi4l
+    xnVPUuL59JivbwNLeBpeBOfSBtjhrShbLgJkyHsVS957m7St11/dVGqxCL6kgtz/
+    Y6wrCb0/yw3MJuzvHRoe8LwExnn5HcGourBtJ0llskAAxqWf1+EwmO4zshMkzIKz
+    79n0JkRriIWucoHxGgijs1Mu8VAgbB18uQkO3zsHt7AbY3OpGV2pVV505cmJ52gp
+    8jeshmni4D/jZdmu4IkktPGM1hzoDqYjKPXDxuzMKJgVyv70MEkoAvh4+BSXikAA
+    Mffwgsie37rRXiI9m+5mwBzjTTRNWUpBJ4RQtq8i60ROy/fMaME8PTxhdtghRWPI
+    lM4x8VHVAgMBAAECggEAFjT6+7Unr5Pci79JC1xIJu+uMqQvquMvlaeYqjGtRNgH
+    ZpojlNey4+lvTKo48KI4ld7EGVC9iZWk+8YsdvfVIWse5DubRGmnmLAfQ65bILpe
+    3h+b6/gUSe5s8EkZXbK+3jvRDTYfrpDrnReqR84o//78yZ4VcVBwjeyaeVY3C+mQ
+    A0bwm+RpnJG6vVfFgBayPHIw4JpQ1/CWwMZlVRXXAbi2tru+/nYF9LSoGO3pf39u
+    t0hNEWZsZH37v11NTzY5tpdBIT+Dt7ac/KtOqCDdhPQzt86BIixQwIZL3jOHMvLj
+    buDWbEHuqJ/A/BtmxSaV6HiWIHWfaAxW6MdAIbIWvwKBgQD/MKjODjvNoty4qbkH
+    QTR0z2bwHDVZtSGNUO2tv8pW09/aSvb8NDJcQ8W+MHS6ASOVaMAcpprN6U1NPGDK
+    NBJ1F/wY960bgM4dVZPbuqLte5GjQISO245YS2PZP2cLbeHt+OS+jrZyOWYwWcW4
+    DPEjIJdCM0/YOmNFOBek1ceJ7wKBgQDIz5zQRFSSmETIHkBAOKJnDzC0Nj8K2u/o
+    SRIgWItE4TPBCipRwWsRBNPrUQrOOkg+P4X5AgHthgucWZkVRYLnT8/0Pn4wNAlG
+    csNRB2U6sFECLMpm59IVMC+V5Ig4hmFAlGCD1wJfAwh7E6lrjF0nliWYZfhioHz+
+    2lsCoUq0ewKBgQCyUGwD38pF/IFCv8W8ngFrhekl6nAVCQ4y0tPhztwyI8aNoEhJ
+    Hqf59JleNjm6J0WYByQGYRxWuaj8SS5Q3GXxUBslzxs01qIvuTaiGR3z156Cdnip
+    4hzq8XMJwNXeFKAESyB7TvmJgzY2nuQboV917jYDWht2ugXXvkQ3N/JAHQKBgEnU
+    QuQzayCmiQtGS/sQl2zqoc5v70evbOrrCpYH19RQM/XyJdL/GL0eGEf4+M8PkIYK
+    VthRC6JnWRd3vZebgeBHcL5sx3ozd4GGKhc9b9NfBbmV/ChPbObLW4NxjT+y8EiN
+    BNsUDtQdyl1twik/ZvRp+JKKUwL33FzarQFPiabHAoGAU+lGABpl8gqs+sQHxjUs
+    sgBps6b8xUZUnj+EklT9ZZTJKJw1Gte5SVTBvXqVnegob6xO2jvJb1hNtzn3QnUj
+    Nt2oxtozj8Di7f90gOy/RlKhmssgvYHySmO+dv9O8emkbcFZFdn3jqOd4IGl/uU4
+    Vg7R/K/2tbQInf2ZZc9l5x0=
+    -----END PRIVATE KEY-----
+  snis:
+  - id: bcffa20b-6c6e-429c-9a82-b6e1fac986fa
+    name: kongmanager.kong.example.com
+consumers:
+- id: df794689-b037-490c-9480-7c90d1669567
+  oauth2_credentials:
+  - client_id: aaa2
+    client_secret: $pbkdf2-sha512$i=10000,l=32$rlqxDVC/ae6HwXzIuTm3vg$tkDzuRvlk/LdACiK5eVmEPiUSsioRqz5JgqK29ytIzA
+    client_type: confidential
+    hash_secret: true
+    id: 7833f486-c32a-4919-a5f0-95c4d7d911a3
+    name: aaa1
+    redirect_uris:
+    - http://localhost:8000/code
+  username: aaa
+- id: 8ab3f957-2250-4805-aeb0-557ca3f3fab9
+  oauth2_credentials:
+  - client_id: client
+    client_secret: $pbkdf2-sha512$i=10000,l=32$+xu1DE6aFtOAbcdZ0OSVPg$5JX02KCq5224wlqjlgdbPMgNLIfZ+lzUtoxp7dxUfbQ
+    client_type: confidential
+    hash_secret: true
+    id: 31c9bd8d-8b94-4675-8401-f98e75a6f9c5
+    name: Test Application
+    redirect_uris:
+    - http://httpbin/echo
+  username: arun
+- basicauth_credentials:
+  - id: 95d98049-e7a9-4a3e-88e8-b57c16d8c65a
+    password: e4e1ca060e021098d62bafc8e7149a7fe853e3bc
+    username: karl
+  id: 0f31ae8e-076a-4546-85c2-f24f7bc52612
+  oauth2_credentials:
+  - client_id: arun1
+    client_secret: $pbkdf2-sha512$i=10000,l=32$ZhTh+963WsKebU8gjd0s+w$XNuiW3X/1ZlNBqnLs7mbP/dk34JM+3u97TG4jKHdVhM
+    client_type: confidential
+    hash_secret: true
+    id: 0c1d75e6-4a1e-4bc0-858f-d71eb16e49e9
+    name: arun
+    redirect_uris:
+    - http://localhost:8000/code
+  username: karl
+- basicauth_credentials:
+  - id: 13dd756d-77ec-43f5-8d76-f1c05b2882a8
+    password: 9d0d5608ea3c384cf854353f2c2833104023c5c6
+    username: test
+  id: 8e648a26-ba2d-4101-ae56-6b2d45b8bd6c
+  username: test
+- basicauth_credentials:
+  - id: 5bd8d23f-0074-4d0d-8c82-d155b2978b9e
+    password: ab75c9346ddf3dcf23bdd363efaf639bb70160f6
+    username: test22
+  id: 2507405a-1036-4742-b676-500b3b87534d
+  oauth2_credentials:
+  - client_id: kong
+    client_secret: $pbkdf2-sha512$i=10000,l=32$htEDeBsQBEAHjTQzVCXCpA$mnhii7WBK1b/QoCBEUU/IipqrViNCcHJ/5i+Xyf9KmM
+    client_type: confidential
+    hash_secret: true
+    id: 236a5224-4ce2-466f-ab0b-2e3d5bd4f39d
+    name: kongencrypt
+  username: test-enc
+- basicauth_credentials:
+  - id: b1185f16-7094-41af-9d76-f491cf08faf4
+    password: c3de71d4585329cd26235434acde81405e66754d
+    username: test4
+  id: 72947a71-8aaf-489b-9470-3ee8a88f635d
+  oauth2_credentials:
+  - client_id: kong123
+    client_secret: $pbkdf2-sha512$i=10000,l=32$tfo/kSqF8ICbEha/283dJA$/TYQOpa5P61i7JEiWGZ4pMfTOI0C99MFmslPRGZQAqA
+    client_type: confidential
+    hash_secret: true
+    id: 6acfd5a2-dea1-4904-ad75-9bed310440a1
+    name: test4
+  username: test4
+- basicauth_credentials:
+  - id: 6429d3c4-a804-4fbb-804d-1f233d4ea965
+    password: ad3849f5a7a60aadb2022e9bb52415431a5e7925
+    username: arun
+  id: 61e89ff3-8b8b-4d3c-bcfe-409e6c6436fa
+  username: test5
+plugins:
+- config:
+    anonymous: null
+    hide_credentials: false
+    key_in_body: false
+    key_in_header: true
+    key_in_query: true
+    key_names:
+    - apikey
+    run_on_preflight: true
+  enabled: false
+  id: 67bf98fe-2553-43fa-b619-b8169f75f514
+  name: key-auth-enc
+  protocols:
+  - grpc
+  - grpcs
+  - http
+  - https
+services:
+- connect_timeout: 60000
+  enabled: true
+  host: httpbin.org
+  id: c842f2de-ecde-4894-a2fd-f7579e0b9921
+  name: httpbin
+  path: /anything
+  plugins:
+  - config:
+      anonymous: null
+      hide_credentials: false
+    enabled: true
+    id: 21ec2490-8a94-4691-a9a5-b358e803edb2
+    name: basic-auth
+    protocols:
+    - grpc
+    - grpcs
+    - http
+    - https
+  port: 443
+  protocol: https
+  read_timeout: 60000
+  retries: 5
+  routes:
+  - https_redirect_status_code: 426
+    id: fd1e40f1-d267-4507-86fc-0e68489c7645
+    name: client-cred
+    path_handling: v0
+    paths:
+    - /client
+    preserve_host: false
+    protocols:
+    - http
+    regex_priority: 0
+    request_buffering: true
+    response_buffering: true
+    strip_path: true
+  - https_redirect_status_code: 426
+    id: 00eb7021-ec6a-4504-b3b1-45ccd5716c5b
+    name: code
+    path_handling: v0
+    paths:
+    - /code
+    plugins:
+    - config:
+        accept_http_if_already_terminated: false
+        anonymous: null
+        auth_header_name: authorization
+        enable_authorization_code: true
+        enable_client_credentials: false
+        enable_implicit_grant: false
+        enable_password_grant: false
+        global_credentials: false
+        hide_credentials: false
+        mandatory_scope: false
+        persistent_refresh_token: false
+        pkce: lax
+        provision_key: DmA1SesOCNw9wsanll1yjlXxzCyYgX7J
+        refresh_token_ttl: 1209600
+        reuse_refresh_token: false
+        scopes:
+        - email
+        - phone
+        - address
+        token_expiration: 7200
+      enabled: true
+      id: 73b8b76c-b05c-41ff-a34a-cfbaeefc6d0e
+      name: oauth2
+      protocols:
+      - grpc
+      - grpcs
+      - http
+      - https
+    preserve_host: false
+    protocols:
+    - http
+    - https
+    regex_priority: 0
+    request_buffering: true
+    response_buffering: true
+    strip_path: true
+  - https_redirect_status_code: 426
+    id: 98213b7b-7b0d-4506-8ffd-58a67b7a483b
+    name: httpbin-basic
+    path_handling: v0
+    paths:
+    - /echo
+    preserve_host: false
+    protocols:
+    - http
+    - https
+    regex_priority: 0
+    request_buffering: true
+    response_buffering: true
+    strip_path: true
+  write_timeout: 60000

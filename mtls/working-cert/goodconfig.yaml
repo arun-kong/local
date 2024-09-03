@@ -1,0 +1,80 @@
+_format_version: "3.0"
+ca_certificates:
+- cert: |-
+    -----BEGIN CERTIFICATE-----
+    MIIDsTCCApmgAwIBAgIUJlqBEpshiYX/w6LZEioIpum+RFMwDQYJKoZIhvcNAQEL
+    BQAwaDELMAkGA1UEBhMCVVMxDjAMBgNVBAgMBVN0YXRlMQ0wCwYDVQQHDARDaXR5
+    MRUwEwYDVQQKDAxPcmdhbml6YXRpb24xDTALBgNVBAsMBFVuaXQxFDASBgNVBAMM
+    C2V4YW1wbGUuY29tMB4XDTI0MDcxNjA5NTE0MloXDTI1MDcxNjA5NTE0MlowaDEL
+    MAkGA1UEBhMCVVMxDjAMBgNVBAgMBVN0YXRlMQ0wCwYDVQQHDARDaXR5MRUwEwYD
+    VQQKDAxPcmdhbml6YXRpb24xDTALBgNVBAsMBFVuaXQxFDASBgNVBAMMC2V4YW1w
+    bGUuY29tMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAyQlT27+A59W7
+    L/3lLJKzJ8m0m+vZhVilCaVgGERETzvaxdqPqDYbtHz6+HeGCUJ7sP19CazhhU4J
+    n5IddnGqBfyY7O/cvulrkiQ/0gQj1R4hIS4uwECht5rOL63hDcCOEFLeJQzcRVvv
+    vEiXBlyT6TwTS2tjLyMuT6zpaW+V9CdZzU7XsinnWnD9J03GPX9BSG/LUFrBBJyy
+    LydbsTYp4YVARlCba4znZS2nAyGcK9aeTTgDfb+pD29PLN3WZrTsENlLRO5NW38q
+    32FTfLlhHyMPudiAlT477WTBSBWUOXd1ULiIlANeE0j8DeZKsy9JFktsG03jxnXW
+    xRRRiFIwswIDAQABo1MwUTAdBgNVHQ4EFgQU/1PxGltaK7MomjzXYSA/57iZyxgw
+    HwYDVR0jBBgwFoAU/1PxGltaK7MomjzXYSA/57iZyxgwDwYDVR0TAQH/BAUwAwEB
+    /zANBgkqhkiG9w0BAQsFAAOCAQEAd080/Smcjj+4zByESFhuCaYzi4uM/JWWVqWE
+    g2xDKe+jqHnBPFs/RtbobMde4ycV7BcpsEK7ZWk32bgsCZxMC8BvxDQj0M7QRHiF
+    KL85JdYhN7D4Z62qlQa0us/WBfRuzkSQFz2xIKj9vq/l5EPiXeudd+wgFvkVUo49
+    Sr/VvBMzBgOUuVqvTkrpfgm4yJfLsILy3Llc1ANoy2tCqkwEaeuTYEjQTVYbFoCx
+    7SS8+o168cS31bxyP1YqLXt64qYvXmLwtnCqYmhF9Ax863sf56SRKFmjWxad0Zl/
+    SEXe3UAgDjke3PZOgoXZil1HK8xD1jDS4dPblKe0o6iiWKN1iA==
+    -----END CERTIFICATE-----
+  cert_digest: 7de7ef7e882840799ba8fc24a292782c8f74f8c4af6151509117a344138bc36f
+  id: b70e551c-8f26-453d-b9cf-9b3924e5b423
+services:
+- connect_timeout: 60000
+  enabled: true
+  host: httpbin.org
+  name: httpbin-service
+  path: /anything
+  plugins:
+  - config:
+      allow_partial_chain: false
+      anonymous: null
+      authenticated_group_by: CN
+      ca_certificates:
+      - b70e551c-8f26-453d-b9cf-9b3924e5b423
+      cache_ttl: 60
+      cert_cache_ttl: 60000
+      consumer_by:
+      - username
+      - custom_id
+      default_consumer: null
+      http_proxy_host: null
+      http_proxy_port: null
+      http_timeout: 30000
+      https_proxy_host: null
+      https_proxy_port: null
+      revocation_check_mode: IGNORE_CA_ERROR
+      send_ca_dn: false
+      skip_consumer_lookup: false
+    enabled: true
+    name: mtls-auth
+    protocols:
+    - grpc
+    - grpcs
+    - http
+    - https
+  port: 80
+  protocol: http
+  read_timeout: 60000
+  retries: 5
+  routes:
+  - https_redirect_status_code: 426
+    name: http-route
+    path_handling: v0
+    paths:
+    - /echo
+    preserve_host: false
+    protocols:
+    - http
+    - https
+    regex_priority: 0
+    request_buffering: true
+    response_buffering: true
+    strip_path: true
+  write_timeout: 60000

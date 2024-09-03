@@ -1,0 +1,153 @@
+_format_version: "3.0"
+ca_certificates:
+- cert: |-
+    -----BEGIN CERTIFICATE-----
+    MIIDkzCCAnugAwIBAgIUBsdYlU9e0u69rwBiUWqdd6gU00IwDQYJKoZIhvcNAQEL
+    BQAwWTELMAkGA1UEBhMCQVUxEzARBgNVBAgMClNvbWUtU3RhdGUxITAfBgNVBAoM
+    GEludGVybmV0IFdpZGdpdHMgUHR5IEx0ZDESMBAGA1UEAwwJY2xpZW50LWNhMB4X
+    DTI0MDgyNzA3MTMyOVoXDTI5MDgyNjA3MTMyOVowWTELMAkGA1UEBhMCQVUxEzAR
+    BgNVBAgMClNvbWUtU3RhdGUxITAfBgNVBAoMGEludGVybmV0IFdpZGdpdHMgUHR5
+    IEx0ZDESMBAGA1UEAwwJY2xpZW50LWNhMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8A
+    MIIBCgKCAQEAnGUXp1kQDqHTS8SWmhTgKiGJRVTeYVZLYYg0GSKZvUmT6x0YR7Io
+    6TpnA79kG3P9uWqs/XLRaQX3vqQ0quChuFQA7oQK9i3EhT1rw49wfGwtZb1Bg/45
+    iwBnKNewN8gGw7uyXk4Sv0OSDeSmO1gqqTHFOt5Q2z4UfuzcE5mopbFyiqwnrf2L
+    G8hQNCVxJIarS7FrmAQ9Y4Q66WFG4GL+cWozqQerB3zfKJAZxSsidBs8qou2XWAM
+    RbEltFdpohmU5/rK4xW2d7nnoA5L1ScC46Gffyto5bZ40WqSzguMEx8I26MbUyVd
+    S5l9T5IB1ySe1kIzLRkPsB2Fbfeld8atawIDAQABo1MwUTAdBgNVHQ4EFgQUH9zn
+    0UCajcHLRsyr8O4w/s032Y0wHwYDVR0jBBgwFoAUH9zn0UCajcHLRsyr8O4w/s03
+    2Y0wDwYDVR0TAQH/BAUwAwEB/zANBgkqhkiG9w0BAQsFAAOCAQEALzocAT3pbhBr
+    uVhSGTfTcoHdjSeHp5WFqHMMqG2E95LEUfkw9AehwC3SDlK+OItijszh4FpkWyAQ
+    NhisdraQSP1GMyPmglMBRQFrjkWF4e3hJKtC/xqszHGpRAsjq7z4wRxfdNC2tcTD
+    0Ggc2V8qJuLxPKKp20gFJPXnyVGy0JrnWJJSujggLYMi4zXiXeQsTcMC64MhownG
+    cjikGcDwGi0kmatnfzh6PmzgAa4M+nxYosaMhCLtsQwHSNZayy7qsMpw/4wOWef2
+    CJ3e0IcGan0nNNzM2U52e6GcJ20ZarT69ccREwaCacuGojuCpxsEUo1o4OCeNTrF
+    gGZFVFE4Eg==
+    -----END CERTIFICATE-----
+  cert_digest: 8eedd88e7251c5390456405dceb17d3cf578b1e0aa61c4e27a5eefb2f010542c
+  id: aeb764a1-9054-4181-b930-ce6253693a95
+certificates:
+- cert: |-
+    -----BEGIN CERTIFICATE-----
+    MIIDhjCCAm6gAwIBAgIUPMpmSxzAy1jxZ+LT3nKONkQV6sMwDQYJKoZIhvcNAQEL
+    BQAwVjELMAkGA1UEBhMCQVUxEzARBgNVBAgMClNvbWUtU3RhdGUxITAfBgNVBAoM
+    GEludGVybmV0IFdpZGdpdHMgUHR5IEx0ZDEPMA0GA1UEAwwGcm9vdGNhMB4XDTI0
+    MDgyNzA3MjUxNloXDTI1MDgyNzA3MjUxNlowYDELMAkGA1UEBhMCQVUxEzARBgNV
+    BAgMClNvbWUtU3RhdGUxITAfBgNVBAoMGEludGVybmV0IFdpZGdpdHMgUHR5IEx0
+    ZDEZMBcGA1UEAwwQa29uZy5leGFtcGxlLmNvbTCCASIwDQYJKoZIhvcNAQEBBQAD
+    ggEPADCCAQoCggEBALhGe2O7+TN3l9wPQ56gzA/6/qLleN0Ic6iZCdl0NVTmFJe3
+    OjkFE2RNiIhUeHPHwIYPe4J8c7//ElWm/3Gl8P+oQAfulDPRbIJj8y+5IEWCKMCp
+    nWJf3+jacGfigLwzn26qOuw9OsB/RVN6aIKpUxEMfyvkw6MxUgiD+NgCCXf3rSiB
+    kNnvECyoyTCd2AK5d1tbaSESKRvFBp+X1K0VRUPZ+5cHGK+ISv+sIlHKY2XGQFAd
+    fvjheWFYp7RGVDb0GnqtSUa+zT7wQ9Woy3MORmmWINo7L+X5OBDvlHxVTJz8/0ep
+    /CcF70RZVjGXo7Z6JGV7fPQeWC9Yi0LUxptu400CAwEAAaNCMEAwHQYDVR0OBBYE
+    FPwGcXTSzBZCqMq4C4QlKq1NBpdGMB8GA1UdIwQYMBaAFI4B7FKMlc7hzWZqITZy
+    2P7RZ/puMA0GCSqGSIb3DQEBCwUAA4IBAQAiXbIL3NOz4/5VxHGVogg9Va/ThihV
+    ws0RfeMoVgCN6upPsIwbKZIBm0YVcPTQC2YMVIZ1I3+iNtZ+fichMWHGtvaDT167
+    faJwnXMKZ7YKMXc0nNbyj+IZiALikbS+npM0i5Yq6cmmMNt0Fc82HKZl+eSkO2PQ
+    SPMQiFFB1Qjm22qv40JIHSVRBsAUM96c/QjBTRUl7tmbHMqDEt+ZSgQSNnEQmGBr
+    R7c2NaJtBbIvp5TPloTHq5XAiTwwujxn3QAGzcmfCFlPrG2fVm00Bf2ckxDMwp1j
+    yuX4gpA7/IgDGgq5nhQrmx/Rn7sODMf8RfuLEIOOgX0IYOribHUeE6gd
+    -----END CERTIFICATE-----
+  id: e04a5dbf-1a5d-47da-88f3-3c5b640d53ea
+  key: |-
+    -----BEGIN PRIVATE KEY-----
+    MIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQC4Rntju/kzd5fc
+    D0OeoMwP+v6i5XjdCHOomQnZdDVU5hSXtzo5BRNkTYiIVHhzx8CGD3uCfHO//xJV
+    pv9xpfD/qEAH7pQz0WyCY/MvuSBFgijAqZ1iX9/o2nBn4oC8M59uqjrsPTrAf0VT
+    emiCqVMRDH8r5MOjMVIIg/jYAgl3960ogZDZ7xAsqMkwndgCuXdbW2khEikbxQaf
+    l9StFUVD2fuXBxiviEr/rCJRymNlxkBQHX744XlhWKe0RlQ29Bp6rUlGvs0+8EPV
+    qMtzDkZpliDaOy/l+TgQ75R8VUyc/P9HqfwnBe9EWVYxl6O2eiRle3z0HlgvWItC
+    1MabbuNNAgMBAAECggEARTnVKMZ4+6i11+m0EWd+wZIdDrz+BqsiJ/g2Bwbs8hPt
+    MIGY0criWg/2dqClD3m/DZ3LXF28big4jwzJcbxRKPnf9Brgegb2qJU7ynXVdcdL
+    3/TYNxilWSiWibBBhHIwNrakpBLse1xUguO9VzidCA6Vx7uM80WX97L8TMmXHQW9
+    ykE9SDLQ0OGfBwA4jyqWPfLLAnRsutUFAVStNiQqeWo+/Hr7tH+ym2hL6ulu/4Hq
+    ZdSC55zQbP+YZb4VYJFvMSeWl5BUj5sOo8ZWJvnPWlBfhMD5ROAQfoLjVD7z2fGy
+    Boatbf+C8gGWd9TsZSKmZDRQL7eZyQixh0YMu56aUQKBgQD4uzuWU9/F51u7eqPs
+    Cr2pbS9fmWd52I3ZTz/WJcv5jR64SQ1y6Hj6xzcuQNxaQU0JXHwy0dvcveEfRoDC
+    8LrCloa5dE0FEjqZHYRIwCXcO7bib/294MXRUNGGLDPPLdt/1lAolaq1N2b3CZ8/
+    iEpvDkxUOa4z21EjLFK0JbMghwKBgQC9qQ0rIUfi9XXQmv2gxr9QkN61FbXBshUI
+    EHtyKsVb4HDkUj0bsmULT8KHpLwFo5Hb6LPhrNOzaYddczxyd/BkohLEPK6hSV7h
+    11OdTeF8enzb9FzTk46ZTL8/ho0hLFv6DeWI/GenLDfzVZpuo+b38QwXwiKD5ohQ
+    1pXUDeJ2iwKBgCQOIAkeh2WMsANxN6nTtMKGjUNyXUmQVp+VmU9Vk0fNaRKVpFlv
+    0Xmovxr5U/fRV3Vv7qD/Qruw2p1J/whDFQ93+nePoEqH5e6kFLTnBZXzIgOY8FNB
+    7er1qCmm5qu1ngfd7Si06VXzff15a5guDXwjunTLF7F0rUJH/oUWoeypAoGAIyEr
+    8kAw24YRs3jx35TQnPCof6wsxVrh8GN1KhloAvOYlYHyFa4+bxDv/EX0GatJeg0p
+    PHTRpZq3WwTcPmue2FT42uZOhktbysMilrF1QaRCek9R3lKniBeiGPcoLuvTgYaP
+    bIcr/9f96RGDEFlFj8lTLxdjY0ERIMAOcn+74a8CgYEA8FrA8X/WBsmajGAS8hed
+    SbtVmaAEerCh8wRzpVlc+VZsBv6sCpo2KpxwNk9OZ37P8NNOmCEXuKPpSrHopxxA
+    Fy7f5wbOmfaMGQmbKYW+4+e4U1wFZp1wOp1SrBWI9xvEC9IMzOqQk9Kka4bh5bmd
+    IjblmBrdy9BRq5A2/j1eRq0=
+    -----END PRIVATE KEY-----
+  snis:
+  - name: kong.example.com
+consumers:
+- acls:
+  - group: ' api-entrypoints.keno.com.au'
+  username: api-entrypoints.keno.com.au
+- username: client2.keno.com.au
+plugins:
+- config:
+    allow:
+    - ' api-entrypoints.keno.com.au'
+    deny: null
+    hide_groups_header: false
+  enabled: true
+  name: acl
+  protocols:
+  - grpc
+  - grpcs
+  - http
+  - https
+services:
+- connect_timeout: 60000
+  enabled: true
+  host: httpbin.org
+  name: httpbin-service
+  path: /anything
+  plugins:
+  - config:
+      allow_partial_chain: false
+      anonymous: null
+      authenticated_group_by: CN
+      ca_certificates:
+      - aeb764a1-9054-4181-b930-ce6253693a95
+      cache_ttl: 60
+      cert_cache_ttl: 60000
+      consumer_by:
+      - username
+      - custom_id
+      default_consumer: null
+      http_proxy_host: null
+      http_proxy_port: null
+      http_timeout: 30000
+      https_proxy_host: null
+      https_proxy_port: null
+      revocation_check_mode: IGNORE_CA_ERROR
+      send_ca_dn: true
+      skip_consumer_lookup: false
+    enabled: true
+    name: mtls-auth
+    protocols:
+    - grpc
+    - grpcs
+    - http
+    - https
+  port: 80
+  protocol: http
+  read_timeout: 60000
+  retries: 5
+  routes:
+  - https_redirect_status_code: 426
+    name: http-route
+    path_handling: v0
+    paths:
+    - /echo
+    preserve_host: false
+    protocols:
+    - http
+    - https
+    regex_priority: 0
+    request_buffering: true
+    response_buffering: true
+    strip_path: true
+  write_timeout: 60000

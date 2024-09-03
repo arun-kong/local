@@ -1,0 +1,47 @@
+_format_version: "3.0"
+consumers:
+- basicauth_credentials:
+  - id: 444e5ffe-5d44-48ca-b748-5a6c8a258143
+    password: bf3bb09fcd427172b5a989bf32d0078b062e9d45
+    username: arun
+  id: c42a8e65-092f-4fd6-a8f0-7c1c7007c9ae
+  username: arun
+services:
+- connect_timeout: 60000
+  enabled: true
+  host: httpbin.org
+  id: 5f0e2830-cd46-4da5-8fc9-ac4902d33c8f
+  name: httpbiin-service
+  path: /anything
+  plugins:
+  - config:
+      anonymous: null
+      hide_credentials: false
+    enabled: true
+    id: ff072d71-c61d-4a78-9571-28cec8f2a986
+    name: basic-auth
+    protocols:
+    - grpc
+    - grpcs
+    - http
+    - https
+  port: 80
+  protocol: http
+  read_timeout: 60000
+  retries: 5
+  routes:
+  - https_redirect_status_code: 426
+    id: 9fbd605b-d877-4cc8-be92-0de8ce31d3b9
+    name: httpbin-route
+    path_handling: v0
+    paths:
+    - /echo
+    preserve_host: false
+    protocols:
+    - http
+    - https
+    regex_priority: 0
+    request_buffering: true
+    response_buffering: true
+    strip_path: true
+  write_timeout: 60000

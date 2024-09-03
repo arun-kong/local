@@ -1,72 +1,65 @@
 version: '3.9'
 
 volumes:
-  db-data:
-    driver: local
+    kong_data: {}
 
 services:
+  cassandra:
+    image: cassandra:3
+    container_name: cassandra
+    restart: always
+    healthcheck:
+        test: ["CMD", "cqlsh", "-e", "describe keyspaces" ]
+        interval: 15s
+        timeout: 10s
+        retries: 10
+    environment:
+      CASSANDRA_CLUSTER_NAME: "KongCluster"
+      CASSANDRA_NUM_TOKENS: "256"
+      MAX_HEAP_SIZE: "512M"
+      HEAP_NEWSIZE: "100M"
+    ports:
+      - "9042:9042"
+
   kong-migrations:
-    image: kong/kong-gateway:3.4.1.1
+    image: kong/kong-gateway:2.8.4.12-alpine
     container_name: kong-migrations
-    #command: "kong migrations up && kong migrations finish"
+    # command: "kong migrations up"
     command: "kong migrations bootstrap"
     depends_on:
-      kong-db:
-        condition: service_healthy
+      cassandra:
+        condition: service_healthy 
     environment:
-      KONG_DATABASE: postgres
-      KONG_PG_HOST: kong-db
-      KONG_PG_DATABASE: kong
-      KONG_PG_USER: kong
-      KONG_PG_PASSWORD: kong
       KONG_PASSWORD: password
-      KONG_LICENSE_DATA: ${KONG_LICENSE_DATA}    
+      KONG_LICENSE_DATA: ${KONG_LICENSE_DATA}
+      KONG_CASSANDRA_CONTACT_POINTS: cassandra
+      KONG_DB_UPDATE_PROPAGATION: 5
+      KONG_DB_UPDATE_FREQUENCY: 10
+      KONG_DATABASE: cassandra
+      KONG_VAULTS: "off"
+      CASSANDRA_SCHEMA_CONSENSUS_TIMEOUT: 30000   
     restart: on-failure
 
-
-
-  kong-db:
-    image: postgres:13.1
-    container_name: kong-db
-    environment:
-      POSTGRES_DB: kong
-      POSTGRES_PASSWORD: kong
-      POSTGRES_USER: kong
-    healthcheck:
-      test: ["CMD", "pg_isready", "-U", "kong"]
-      interval: 10s
-      timeout: 10s
-      retries: 5
-    restart: on-failure
-    stdin_open: true
-    tty: true
-    ports:
-      - 5432:5432/tcp
 
   kong-cp:
-    image: kong/kong-gateway:3.4.1.1
+    image: kong/kong-gateway:2.8.4.12-alpine
     container_name: kong-cp
     user: "${KONG_USER:-kong}"
     depends_on:
-      kong-db:
-        condition: service_healthy
+      cassandra:
+        condition: service_healthy 
     environment:
       KONG_LICENSE_DATA: ${KONG_LICENSE_DATA}
+
       KONG_ROLE: control_plane
       KONG_CLUSTER_CERT: /certs/cluster.crt
       KONG_CLUSTER_CERT_KEY: /certs/cluster.key
-      # enable Keyring and Data Encryption
-      KONG_KEYRING_ENABLED: on
-      KONG_KEYRING_STRATEGY: cluster
-      KONG_KEYRING_RECOVERY_PUBLIC_KEY: /certs/cert.pem
-      KONG_KEYRING_PUBLIC_KEY: /certs/cert.pem
-      KONG_KEYRING_PRIVATE_KEY: /certs/key.pem
-      # end
-      KONG_DATABASE: postgres
-      KONG_PG_HOST: kong-db
-      KONG_PG_DATABASE: kong
-      KONG_PG_USER: kong
-      KONG_PG_PASSWORD: kong
+
+      KONG_CASSANDRA_CONTACT_POINTS: cassandra
+      KONG_DB_UPDATE_PROPAGATION: 5
+      KONG_DB_UPDATE_FREQUENCY: 10
+      KONG_DATABASE: cassandra
+      KONG_CASSANDRA_SCHEMA_CONSENSUS_TIMEOUT: 30000
       KONG_ENFORCE_RBAC: "on"
       KONG_NGINX_WORKER_PROCESSES: 2
       KONG_ANONYMOUS_REPORTS: "off"
@@ -85,6 +78,11 @@ services:
       KONG_VITALS: "on"
       KONG_STATUS_LISTEN: "0.0.0.0:8100"
       KONG_PORTAL: "off"
+      #keyring enabled
+      KONG_KEYRING_ENABLED: on
+      KONG_KEYRING_STRATEGY: cluster
+      KONG_KEYRING_PUBLIC_KEY: /certs/cert.pem
+      KONG_KEYRING_PRIVATE_KEY: /certs/key.pem
       # added for oids
       # KONG_ADMIN_GUI_AUTH: "openid-connect"
       # KONG_ADMIN_GUI_AUTH_CONF: '{ 
@@ -122,12 +120,12 @@ services:
 
 
   kong-dp:
-    image: kong/kong-gateway:3.4.1.1
+    image: kong/kong-gateway:2.8.4.12-alpine
     container_name: kong-dp
     user: "${KONG_USER:-kong}"
     depends_on:
-      kong-db:
-        condition: service_healthy
+      cassandra:
+        condition: service_healthy 
     environment:
       KONG_LICENSE_DATA: ${KONG_LICENSE_DATA}
       KONG_ROLE: data_plane
@@ -155,9 +153,6 @@ services:
     volumes:
       - ./certs:/certs
     restart: on-failure
-
-
-
 
   vault:
     image: hashicorp/vault:latest

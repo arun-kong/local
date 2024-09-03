@@ -1,6 +1,10 @@
+# Do not use Kong Ingress Controller
+ingressController:
+ enabled: false
+  
 image:
  repository: kong/kong-gateway
- tag: "3.7.1.1"
+ tag: "3.7.1.2"
   
 # Mount the secret created earlier
 secretVolumes:
@@ -15,8 +19,7 @@ env:
  admin_gui_url: http://manager.kong-kube-test.com
  admin_gui_api_url: http://admin.kong-kube-test.com
  # Change the secret and set cookie_secure to true if using a HTTPS endpoint
- admin_gui_session_conf: '{"secret":"secret","storage":"kong","cookie_secure":false}'
-  
+ admin_gui_session_conf: '{"secret":"secret","storage":"kong","cookie_secure":false}'  
  # Database
  # CHANGE THESE VALUES
  database: postgres
@@ -27,37 +30,10 @@ env:
  pg_ssl: "on"
   
  # Kong Manager password
- password: password
-  
-# Enterprise functionality
-enterprise:
- enabled: true
- license_secret: kong-enterprise-license
- rbac:
-  enabled: true
-  admin_gui_auth: basic-auth
-  
-# Clustering endpoints are required in hybrid mode
-cluster:
- enabled: true
- tls:
-   enabled: true
-  
-clustertelemetry:
- enabled: true
- tls:
-   enabled: true
-  
-# These roles will be served by different Helm releases
-proxy:
- enabled: false
+ password: kong_admin_password
 
-ingressController:
-  enabled: true
-  env:
-    publish_service: kong/kong-dp-kong-proxy
-    kong_admin_token: password
-
+  
+# The control plane serves the Admin API
 admin:
  enabled: true
  http:
@@ -71,17 +47,47 @@ admin:
    path: /
    pathType: Prefix
    ingressClassName: kong
-
-manager:
+  
+# Clustering endpoints are required in hybrid mode
+cluster:
+ enabled: true
+ tls:
+   enabled: true
+  
+clustertelemetry:
+ enabled: true
+ tls:
+   enabled: true
+  
+# Optional features
+enterprise:
+ enabled: true
+ license_secret: kong-enterprise-license
+ rbac:
   enabled: true
-  http:
-    enabled: true
-  tls:
-    enabled: false
-     
-  ingress:
-    enabled: true
-    hostname: manager.kong-kube-test.com
-    path: /
-    pathType: Prefix
-    ingressClassName: kong
+  admin_gui_auth: basic-auth
+manager:
+ enabled: true
+ http:
+   enabled: true
+ tls:
+   enabled: false
+    
+ ingress:
+   enabled: true
+   hostname: manager.kong-kube-test.com
+   path: /
+   pathType: Prefix
+   ingressClassName: kong
+  
+# These roles will be served by different Helm releases
+proxy:
+ enabled: false
+
+ingressController:
+ enabled: true
+ env:
+   publish_service: kong/kong-dp-kong-proxy
+   kong_admin_token: kong_admin_password
+
+
