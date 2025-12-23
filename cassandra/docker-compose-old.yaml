@@ -138,7 +138,7 @@ services:
       KONG_SMTP_AUTH_TYPE: plain
       KONG_SMTP_STARTTLS: "on"
       KONG_SMTP_USERNAME: kongemailtest@gmail.com
-      KONG_SMTP_PASSWORD: jNzjktjjzhzwYiQdpd2jymXV
+      KONG_SMTP_PASSWORD: 
       KONG_SMTP_ADMIN_EMAILS: noreply@konghq.com
       KONG_VITALS: "off"
 #      KONG_NGINX_HTTP_PROXY_SSL_VERIFY: "on"
